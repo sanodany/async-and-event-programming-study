@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function getNumber(){
+  return new Promise((resolve) => {
+    resolve(25)
+  });
+}
+getNumber().then((number)=>{
+console.log(number * 2)
+})
+
+    </script>    
+
+</body>
+</html>
