@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function sayHello(){
+    return new Promise((resolve)=>{
+        setTimeout(
+            ()=>{
+                resolve("Helllo Sano!")
+            },2000
+        )
+    })
+}
+sayHello().then((mesage)=>{
+    console.log(mesage)
+})
+    </script>    
+
+</body>
+</html>
