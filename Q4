@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+<script>
+function login(username, password) {
+return new Promise((resolve, reject)=>{
+ if (username === "sano" && password === "1234"){
+    resolve("Login successful");
+ } else {
+    reject("Invalid username or password");
+ }
+})
+}
+login("sano", "1234").then((message)=>{
+    console.log(message)
+}).catch((error)=>{
+    console.log(error)
+})
+</script>    
+
+</body>
+</html>
