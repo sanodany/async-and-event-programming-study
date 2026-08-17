@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     function getUser(id, cb){
+        setTimeout(()=>{
+            cb(`User ${id}`)
+        }, 500)
+     }
+
+     function getPosts(userId,cb){
+        setTimeout(()=>{
+            cb(`Posts for ${userId}`)
+        }, 500)
+     }
+
+     function getComments(postId,cb){
+        setTimeout(()=>{
+            cb(`Comments for ${postId}`)
+        }, 500)
+     }
+   
+     getUser(1, (User)=>{
+        console.log(User)
+        getPosts(User, (Posts)=>{
+            console.log(Posts)
+            getComments(Posts, (Comments)=>{
+                console.log(Comments)
+            })
+        })
+     })
+
+    </script>    
+
+</body>
+</html>
+<!---- Write three functions: getUser(id, cb), getPosts(userId, cb), getComments(postId, cb) —
+ each fakes a 500ms delay then returns dummy data. Chain them the ugly way: 
+nested callbacks 3 levels deep. 
+This is intentional pain — you need to feel it before Promises make sense.--->
