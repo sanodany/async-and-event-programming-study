@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   
+   function getUser(id){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+           resolve({id:id,name:'John'}) 
+        },500)
+    })
+   }
+   function getPosts(userId){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve([{id:1,userId:userId}])
+        },500)
+    })
+   }
+   function getComments(postId){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve([{id:1,postId:postId}])
+        },500)
+    })
+   }
+getUser(1).then((user)=>{
+     return getPosts(user.id)
+}).then((posts)=>{
+     getComments(posts[0].id)   // <-- no return!
+}).then((comments)=>{
+     console.log("Final comments: i am the person with id 1", comments)
+})
+    </script>    
+
+</body>
+</html>
+<!--1.3 — Callback hell (build it on purpose)
+Write three functions: getUser(id, cb), getPosts(userId, cb), getComments(postId, cb) — each fakes a 500ms delay then returns dummy data.
+ Chain them the ugly way: nested callbacks 3 levels deep.
+ This is intentional pain — you need to feel it before Promises make sense.-->
