@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   function divideAsPromise(a,b){
+    return new Promise((resolve,reject)=>{
+       if(b === 0){
+          reject("Division by zero is not allowed");
+       } else {
+          resolve(a/b);
+       }
+    })
+   }
+
+   divideAsPromise(10,2).then((result)=>{
+    console.log(result);
+   }).catch((error)=>{
+    console.error(error);
+   });
+
+    </script>    
+
+</body>
+</html>
+<!--Take your divide function from 1.2 and wrap it: divideAsPromise(a, b)
+ returns a new Promise(...) that resolves or rejects instead of using a callback.-->
